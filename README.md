@@ -25,4 +25,4 @@ You should add your files under the `./source` dir.
 
 ## Sites built using this skeleton
 
-  * [Sotogrande Taxi site](http://www.sotogrande.taxi)
+  * [Taxi Sotogrande](http://www.sotogrande.taxi)
