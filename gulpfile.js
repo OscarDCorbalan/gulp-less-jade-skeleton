@@ -1,11 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
-const less = require('gulp-less');
-const jade = require('gulp-jade');
-const cssmin = require('gulp-cssmin');
 const imagemin = require('gulp-imagemin');
-const rename = require('gulp-rename');
 const connect = require('gulp-connect');
 
 
@@ -17,7 +13,13 @@ SRC_DIR.img = SRC_DIR.assets + 'images/';
 
 // Source file matchers, using respective directories
 const SRC_FILES = {
-	assets: SRC_DIR.assets + '**/*'
+	assets: {
+		images: SRC_DIR.assets + 'images/**/*',
+		allButImages: [
+			SRC_DIR.assets + '**/*',
+			SRC_DIR.assets + '!images/**/*'
+		]
+	}
 };
 
 // Output directories
@@ -32,11 +34,21 @@ PUB_DIR.img = PUB_DIR.root + 'images/';
 // TASKS
 
 gulp.task('watch', () => {
-	gulp.watch(SRC_FILES.assets, ['copyAssets']);
+	gulp.watch(SRC_FILES.less, ['less']);
+	gulp.watch([SRC_FILES.jade,  SRC_FILES.jadeTemplates], ['jade']);
+	gulp.watch(SRC_FILES.assets.images, ['imagemin']);
+	gulp.watch(SRC_FILES.assets.notImages, ['copyAssets']);
 });
 
+gulp.task('imagemin', () =>
+    gulp.src(SRC_FILES.assets.images)
+        .pipe(imagemin())
+        .pipe(gulp.dest(PUB_DIR.img))
+		.pipe(connect.reload())
+);
+
 gulp.task('copyAssets', () =>
-    gulp.src(SRC_FILES.assets)
+    gulp.src(SRC_FILES.assets.allButImages)
         .pipe(gulp.dest(PUB_DIR.root))
 		.pipe(connect.reload())
 );
@@ -50,5 +62,5 @@ gulp.task('webserver', () =>
 	})
 );
 
-gulp.task('default', ['copyAssets']);
+gulp.task('default', ['imagemin', 'copyAssets']);
 gulp.task('server', ['default', 'webserver', 'watch']);
