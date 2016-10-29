@@ -1,5 +1,9 @@
 # Version history
 
+## v0.3.0
+
+* Add README.
+
 ## v0.2.1
 
 * Added image minification support.
