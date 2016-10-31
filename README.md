@@ -1,4 +1,4 @@
-﻿# In development
+﻿# Project is in ACTIVE DEVELOPMENT
 
 This package is not finished.
 

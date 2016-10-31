@@ -1,5 +1,9 @@
 # Version history
 
+## v0.3.1
+
+* README changes.
+
 ## v0.3.0
 
 * Add README.
