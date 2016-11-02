@@ -22,5 +22,6 @@
     "gulp": "~3.9",
     "gulp-connect": "~5.0",
     "gulp-imagemin": "~3.0",
+    "gulp-jade": "~1.1"
   }
 }
