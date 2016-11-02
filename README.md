@@ -5,7 +5,7 @@ This package is not finished.
 Some features are missing.
 
 
-# Gulp Less Jade Skeleton
+# Gulp / Less / Jade skeleton
 
 This is a skeleton to build static websties using Jade and Less, plus a live-reload webserver for faster development. It uses:
   * Gulp to automate build tasks.
