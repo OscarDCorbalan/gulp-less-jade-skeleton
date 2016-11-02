@@ -1,6 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
+const jade = require('gulp-jade');
 const imagemin = require('gulp-imagemin');
 const connect = require('gulp-connect');
 
@@ -10,9 +11,15 @@ const SRC_DIR = {};
 SRC_DIR.root = './src/';
 SRC_DIR.assets = SRC_DIR.root + 'assets/';
 SRC_DIR.img = SRC_DIR.assets + 'images/';
+SRC_DIR.jade = SRC_DIR.root + 'jade/';
 
 // Source file matchers, using respective directories
 const SRC_FILES = {
+	jadeTemplates: SRC_DIR.jade + 'templates/*.jade',
+	jade: [
+		SRC_DIR.jade + '*.jade',
+		SRC_DIR.jade + 'en/*.jade'
+	],
 	assets: {
 		images: SRC_DIR.assets + 'images/**/*',
 		allButImages: [
@@ -34,10 +41,23 @@ PUB_DIR.img = PUB_DIR.root + 'images/';
 // TASKS
 
 gulp.task('watch', () => {
-	gulp.watch(SRC_FILES.less, ['less']);
+	gulp.watch([SRC_FILES.jade,  SRC_FILES.jadeTemplates], ['jade']);
 	gulp.watch(SRC_FILES.assets.images, ['imagemin']);
 	gulp.watch(SRC_FILES.assets.notImages, ['copyAssets']);
 });
+
+gulp.task('jade', () =>
+	gulp.src(SRC_FILES.jade)
+		.pipe(jade({
+			pretty: true // Comment this to get minified HTML
+		}))
+		.pipe(gulp.dest(file => {
+			var jadeIndex = file.base.lastIndexOf('jade');
+			var relPath = file.base.substr(jadeIndex+5);
+			return PUB_DIR.root + relPath;
+		}))
+		.pipe(connect.reload())
+);
 
 gulp.task('imagemin', () =>
     gulp.src(SRC_FILES.assets.images)
@@ -61,5 +81,5 @@ gulp.task('webserver', () =>
 	})
 );
 
-gulp.task('default', ['imagemin', 'copyAssets']);
+gulp.task('default', ['imagemin', 'copyAssets', 'jade']);
 gulp.task('server', ['default', 'webserver', 'watch']);
