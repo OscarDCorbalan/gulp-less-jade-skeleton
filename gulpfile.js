@@ -16,10 +16,7 @@ SRC_DIR.jade = SRC_DIR.root + 'jade/';
 // Source file matchers, using respective directories
 const SRC_FILES = {
 	jadeTemplates: SRC_DIR.jade + 'templates/*.jade',
-	jade: [
-		SRC_DIR.jade + '*.jade',
-		SRC_DIR.jade + 'en/*.jade'
-	],
+	jade: SRC_DIR.jade + '*.jade',
 	assets: {
 		images: SRC_DIR.assets + 'images/**/*',
 		allButImages: [
