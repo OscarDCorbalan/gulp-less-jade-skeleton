@@ -35,7 +35,6 @@ PUB_DIR.img = PUB_DIR.root + 'images/';
 
 gulp.task('watch', () => {
 	gulp.watch(SRC_FILES.less, ['less']);
-	gulp.watch([SRC_FILES.jade,  SRC_FILES.jadeTemplates], ['jade']);
 	gulp.watch(SRC_FILES.assets.images, ['imagemin']);
 	gulp.watch(SRC_FILES.assets.notImages, ['copyAssets']);
 });
