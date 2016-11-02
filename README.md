@@ -46,4 +46,4 @@ You should add your files under the `./source` dir.
 
 ## Sites built using this skeleton
 
-  * [Taxi Sotogrande](http://www.sotogrande.taxi)
+  * [Taxi Sotogrande](http://www.sotogrande.taxi), [GitHub repo](https://github.com/OscarDCorbalan/sotogrande.taxi)
