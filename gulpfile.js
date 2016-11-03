@@ -46,7 +46,7 @@ gulp.task('watch', () => {
 	gulp.watch(SRC_FILES.less, ['less']);
 	gulp.watch([SRC_FILES.jade,  SRC_FILES.jadeTemplates], ['jade']);
 	gulp.watch(SRC_FILES.assets.images, ['imagemin']);
-	gulp.watch(SRC_FILES.assets.notImages, ['copyAssets']);
+	gulp.watch(SRC_FILES.assets.allButImages, ['copyAssets']);
 });
 
 gulp.task('less', () =>
