@@ -1,8 +1,11 @@
 'use strict';
 
 const gulp = require('gulp');
+const less = require('gulp-less');
 const jade = require('gulp-jade');
+const cssmin = require('gulp-cssmin');
 const imagemin = require('gulp-imagemin');
+const rename = require('gulp-rename');
 const connect = require('gulp-connect');
 
 
@@ -11,10 +14,12 @@ const SRC_DIR = {};
 SRC_DIR.root = './src/';
 SRC_DIR.assets = SRC_DIR.root + 'assets/';
 SRC_DIR.img = SRC_DIR.assets + 'images/';
+SRC_DIR.less = SRC_DIR.root + 'less/';
 SRC_DIR.jade = SRC_DIR.root + 'jade/';
 
 // Source file matchers, using respective directories
 const SRC_FILES = {
+	less: SRC_DIR.less + '*.less',
 	jadeTemplates: SRC_DIR.jade + 'templates/*.jade',
 	jade: SRC_DIR.jade + '*.jade',
 	assets: {
@@ -38,10 +43,22 @@ PUB_DIR.img = PUB_DIR.root + 'images/';
 // TASKS
 
 gulp.task('watch', () => {
+	gulp.watch(SRC_FILES.less, ['less']);
 	gulp.watch([SRC_FILES.jade,  SRC_FILES.jadeTemplates], ['jade']);
 	gulp.watch(SRC_FILES.assets.images, ['imagemin']);
 	gulp.watch(SRC_FILES.assets.notImages, ['copyAssets']);
 });
+
+gulp.task('less', () =>
+	gulp.src(SRC_FILES.less)
+		.pipe(less().on('error', err => console.log(err)))
+		.pipe(gulp.dest(PUB_DIR.css))
+        .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest(PUB_DIR.css))
+		.pipe(connect.reload())
+		.pipe(connect.reload())
+);
 
 gulp.task('jade', () =>
 	gulp.src(SRC_FILES.jade)
@@ -78,5 +95,5 @@ gulp.task('webserver', () =>
 	})
 );
 
-gulp.task('default', ['imagemin', 'copyAssets', 'jade']);
+gulp.task('default', ['less', 'jade', 'imagemin', 'copyAssets']);
 gulp.task('server', ['default', 'webserver', 'watch']);
