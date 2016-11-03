@@ -1,8 +1,8 @@
-﻿# Project is in ACTIVE DEVELOPMENT
+﻿# This Project is being reviewed and tested
 
-This package is not finished.
+All functionality is finished.
 
-Some features are missing.
+This README needs some polishing, but it should be ok with the info available in the genereted index.html to start.
 
 
 # Gulp / Less / Jade skeleton
