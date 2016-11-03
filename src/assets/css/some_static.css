@@ -1,4 +1,4 @@
-/* 
+/*
  * Drop your static CSS libraries in this folder.
  * For example, Bootstrap CSS would go in here if
  * you aren't loading it from their CDN.
@@ -6,6 +6,8 @@
 
 html {
 	background-color: #F0F0F0;
-	padding: ;
+}
+
+.text-center {
 	text-align: center;
 }
