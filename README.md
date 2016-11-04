@@ -1,16 +1,17 @@
-﻿# This Project is being reviewed and tested
-
-All functionality is finished.
-
-This README needs some polishing, but it should be ok with the info available in the genereted index.html to start.
-
-
-# Gulp + Less + Jade skeleton
+﻿# Gulp + Less + Jade skeleton
 
 This is a skeleton to build static websties using Jade and Less, plus a live-reload webserver for faster development. It uses:
   * **Gulp** to automate build tasks, plus Gulp Connect to provide a local server with live reload .
   * **Jade** template engine to streamline html writing.
   * **Less**, to modularize and minimize the CSS written.
+
+Extra things to make your website faster:
+ * **CSS minification**: both CSS and LESS files are automatically minified.
+ * **HTML minification**: the output of Jade files is minified.
+
+## Issues and/or questions
+
+Please open a thread in https://github.com/OscarDCorbalan/gulp-less-jade-skeleton/issues
 
 # Documentation
 
@@ -23,6 +24,37 @@ This is a skeleton to build static websties using Jade and Less, plus a live-rel
     * [Gulp](http://gulpjs.com): In a shell console type `npm install -g gulp`.
     * Gulp plugins and app dependencies: Open the repo directory in the console and type `npm install` or, shorter, `npm i`.
 	  * This will install any neded Node modules (cssmin, jade, less...)
+
+## What's included
+
+Within the download you'll find the following directories and files:
+
+```
+├── src	.	.	.	.	.	Working directory. Contains some sample files
+│   ├── assets  .	.	.	.	Static assets for the site
+│   │   ├── css .	.	.	.	.	Yours or others' CSS files, e.g. bootstrap.css. Will be minified.
+│   │   ├── fonts	.	.	.	.	Custom fonts
+│   │   ├── images	.	.	.	.	These will be minified by gulp when processing them
+│   │   ├── js 	.	.	.	.	.	Yours or others' JS files, e.j. jquery.js
+│   │   └── robots.txt 	.	.	.	Default robots.txt (allows crawling everything)
+│   ├── jade  	.	.	.	.	Jade files to be processed by gulp-jade.
+│   │   ├── templates	.	.	.	Partial views.
+│   │   ├── index.jade	.	.	.	Sample index.
+│   │   └── *.jade 	.	.	.	.	Your Jade files.
+│   └── less  	.	.	.	.	LESS files to be processed by gulp-less.
+│       ├── style.less	.	.	.	Sample style.
+│       └── *.less 	.	.	.	.	Your less files.
+├── public  .	.	.	.	Build directory. Don't put anything here, Gulp does.
+│   ├── css .	.	.	.	.	Minified CSS from assets and compiled LESS.
+│   ├── fonts	.	.	.	.	Copied asset fonts.
+│   ├── images	.	.	.	.	Minfied asset images.
+│   ├── js 	.	.	.	.	.	Copied asset Javascript.
+│   ├── robots.txt 	.	.	.	Copied asset robots.txt.
+│   └── *.html 	.	.	.	.	Compiled Jade files. Html is minified.
+├── gulpfile.js	.	.	Gulp tasks configuration  
+├── package.json	.	Package configuration  
+└── README.md	.	.	This file
+```
 
 ## Running it
 

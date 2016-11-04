@@ -1,6 +1,10 @@
 # Version history
 
 
+## 1.0.0
+* Doc: documentation finished.
+* Feat: **project finished** and entering maintenance.
+
 ## v0.9.1
 * Doc: Missing HISTORY changes.
 
