@@ -1,6 +1,9 @@
 # Version history
 
 
+## 1.0.2
+* Fix: README tree indentation.
+
 ## 1.0.1
 * Fix: Comment 'pretty' option which caused no html minification.
 
