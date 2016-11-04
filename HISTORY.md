@@ -2,7 +2,7 @@
 
 ## v0.4.0
 
-* Add support to process Jade files #e54969e.
+* Add support to process Jade files (#e54969e).
 
 ## v0.3.2
 
