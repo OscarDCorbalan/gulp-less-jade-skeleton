@@ -1,5 +1,14 @@
 # Version history
 
+## v0.4.0
+
+* Add support to process Jade files #e54969e.
+
+## v0.3.2
+
+* Fix: Watch task crashes.
+* Doc: README changes.
+
 ## v0.3.1
 
 * README changes.
