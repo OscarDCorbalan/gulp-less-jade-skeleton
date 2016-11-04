@@ -1,6 +1,15 @@
 # Version history
 
 
+## v0.9.1
+* Doc: Missing HISTORY changes.
+
+## v0.9.0
+* Doc: Improve README.
+
+## v0.8.0
+* Doc: Add MIT license.
+
 ## v0.7.0
 * Chore: Upload generated /public directory
 * Chore: Unignore /public directory
