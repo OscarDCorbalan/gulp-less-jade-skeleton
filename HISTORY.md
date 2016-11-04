@@ -1,6 +1,9 @@
 # Version history
 
 
+## 1.0.1
+* Fix: Comment 'pretty' option which caused no html minification.
+
 ## 1.0.0
 * Doc: documentation finished.
 * Feat: **project finished** and entering maintenance.

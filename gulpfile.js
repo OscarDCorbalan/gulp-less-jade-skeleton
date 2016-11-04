@@ -63,7 +63,7 @@ gulp.task('less', () =>
 gulp.task('jade', () =>
 	gulp.src(SRC_FILES.jade)
 		.pipe(jade({
-			pretty: true // Comment this to get minified HTML
+			// pretty: true // Comment this to get minified HTML
 		}))
 		.pipe(gulp.dest(file => {
 			var jadeIndex = file.base.lastIndexOf('jade');
