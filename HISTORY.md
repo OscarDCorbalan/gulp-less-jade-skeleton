@@ -1,6 +1,9 @@
 # Version history
 
 
+## 1.1.2
+* Fix: Missing devDependencies.
+
 ## 1.1.1
 * Chore: Add project homepage in package.json.
 
