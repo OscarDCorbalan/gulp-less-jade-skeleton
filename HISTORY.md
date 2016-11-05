@@ -1,6 +1,9 @@
 # Version history
 
 
+## 1.1.3
+* Fix: Inconsistent npmjs version.
+
 ## 1.1.2
 * Fix: Missing devDependencies.
 
