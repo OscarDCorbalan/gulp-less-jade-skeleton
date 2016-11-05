@@ -1,7 +1,7 @@
 {
   "name": "gulp-less-jade-skeleton",
   "description": "Skeleton to create websites using Gulp as a task manager, LESS for CSS preprocessing and Jade to generate HTML effortlestly.",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "keywords": "gulp, less, jade, node, skeleton",
   "license": "MIT",
   "author": {
@@ -22,6 +22,7 @@
     "gulp": "~3.9",
     "gulp-connect": "~5.0",
     "gulp-imagemin": "~3.0",
-    "gulp-jade": "~1.1"
+    "gulp-jade": "~1.1",
+    "gulp-uglify": "~2.0"
   }
 }

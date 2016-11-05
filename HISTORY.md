@@ -1,6 +1,10 @@
 # Version history
 
 
+## 1.1.0
+* Feat: Add support to minify Javascript.
+* Doc: Improve comment in demo CSS asset file.
+
 ## 1.0.3
 * Fix: Images being treated both by `copy` and `imagemin` tasks.
 
