@@ -1,6 +1,9 @@
 # Version history
 
 
+## 1.1.1
+* Chore: Add project homepage in package.json.
+
 ## 1.1.0
 * Feat: Add support to minify Javascript.
 * Doc: Improve comment in demo CSS asset file.
