@@ -2,6 +2,7 @@
  * Drop your static CSS libraries in this folder.
  * For example, Bootstrap CSS would go in here if
  * you aren't loading it from their CDN.
+ * The files in this folder AREN'T minified.
  */
 
 html {
