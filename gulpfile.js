@@ -14,7 +14,6 @@ const SRC_DIR = {};
 SRC_DIR.root = './src/';
 SRC_DIR.assets = SRC_DIR.root + 'assets/';
 SRC_DIR.img = SRC_DIR.root + 'images/';
-SRC_DIR.js = SRC_DIR.root + 'js/';
 SRC_DIR.less = SRC_DIR.root + 'less/';
 SRC_DIR.jade = SRC_DIR.root + 'jade/';
 
@@ -23,7 +22,6 @@ const SRC_FILES = {
 	less: SRC_DIR.less + '*.less',
 	jadeTemplates: SRC_DIR.jade + 'templates/*.jade',
 	jade: SRC_DIR.jade + '*.jade',
-	js: SRC_DIR.js + '**/*.js',
 	images: SRC_DIR.img + '**/*',
 	assets: SRC_DIR.assets + '**/*'
 };
