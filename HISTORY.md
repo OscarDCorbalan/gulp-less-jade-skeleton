@@ -1,6 +1,9 @@
 # Version history
 
 
+## 1.0.3
+* Fix: Images being treated both by `copy` and `imagemin` tasks.
+
 ## 1.0.2
 * Fix: README tree indentation.
 

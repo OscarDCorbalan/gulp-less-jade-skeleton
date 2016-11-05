@@ -13,7 +13,8 @@ const connect = require('gulp-connect');
 const SRC_DIR = {};
 SRC_DIR.root = './src/';
 SRC_DIR.assets = SRC_DIR.root + 'assets/';
-SRC_DIR.img = SRC_DIR.assets + 'images/';
+SRC_DIR.img = SRC_DIR.root + 'images/';
+SRC_DIR.js = SRC_DIR.root + 'js/';
 SRC_DIR.less = SRC_DIR.root + 'less/';
 SRC_DIR.jade = SRC_DIR.root + 'jade/';
 
@@ -22,13 +23,9 @@ const SRC_FILES = {
 	less: SRC_DIR.less + '*.less',
 	jadeTemplates: SRC_DIR.jade + 'templates/*.jade',
 	jade: SRC_DIR.jade + '*.jade',
-	assets: {
-		images: SRC_DIR.assets + 'images/**/*',
-		allButImages: [
-			SRC_DIR.assets + '**/*',
-			SRC_DIR.assets + '!images/**/*'
-		]
-	}
+	js: SRC_DIR.js + '**/*.js',
+	images: SRC_DIR.img + '**/*',
+	assets: SRC_DIR.assets + '**/*'
 };
 
 // Output directories
@@ -45,8 +42,8 @@ PUB_DIR.img = PUB_DIR.root + 'images/';
 gulp.task('watch', () => {
 	gulp.watch(SRC_FILES.less, ['less']);
 	gulp.watch([SRC_FILES.jade,  SRC_FILES.jadeTemplates], ['jade']);
-	gulp.watch(SRC_FILES.assets.images, ['imagemin']);
-	gulp.watch(SRC_FILES.assets.allButImages, ['copyAssets']);
+	gulp.watch(SRC_FILES.images, ['imagemin']);
+	gulp.watch(SRC_FILES.assets.onlyCopy, ['copyAssets']);
 });
 
 gulp.task('less', () =>
@@ -74,14 +71,14 @@ gulp.task('jade', () =>
 );
 
 gulp.task('imagemin', () =>
-    gulp.src(SRC_FILES.assets.images)
+    gulp.src(SRC_FILES.images)
         .pipe(imagemin())
         .pipe(gulp.dest(PUB_DIR.img))
 		.pipe(connect.reload())
 );
 
 gulp.task('copyAssets', () =>
-    gulp.src(SRC_FILES.assets.allButImages)
+    gulp.src(SRC_FILES.assets)
         .pipe(gulp.dest(PUB_DIR.root))
 		.pipe(connect.reload())
 );
